@@ -46,16 +46,20 @@ class CleanMe {
     //--------------------------------------------------------------------------
 
     
-    func deleteItems(checkedItemsArray: [Int]){
+    // CM-F-01 fix (Academy, 2026-11-11): deletion takes the selected
+    // `CleanLocation` values themselves — the same entries whose
+    // `displayName` the UI shows and whose `path` Analyse measured.
+    // No integer index is resolved through a separate table here.
+    func deleteItems(selectedLocations: [CleanLocation]){
         var asRoot = false
         var cmd = ""
-        
+
         //Create command
-        for pathKey in checkedItemsArray{
-            cmd = cmd + createDeleteCmd(path: PATH[PATHkey[pathKey]]!) + " ; "
+        for location in selectedLocations{
+            cmd = cmd + createDeleteCmd(path: location.path) + " ; "
 
             //Check if we need to execute it as root
-            if(pathKey == 11 || pathKey == 10 || pathKey == 9 || pathKey == 4 || pathKey == 14 || pathKey == 15){
+            if(location.requiresRoot){
                 asRoot = true
             }
         }
