@@ -11,6 +11,7 @@
 		0A14BDBE1E34325900FD4BBA /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A14BDBD1E34325900FD4BBA /* AboutViewController.swift */; };
 		0A5411D91E2FDBFF00021B3E /* ToolTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5411D81E2FDBFF00021B3E /* ToolTips.swift */; };
 		0A5411DB1E2FDC0D00021B3E /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5411DA1E2FDC0D00021B3E /* Paths.swift */; };
+		C1EA00000000000000000005 /* CleanMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EA00000000000000000001 /* CleanMeTests.swift */; };
 		0A5411DF1E2FE29700021B3E /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5411DE1E2FE29700021B3E /* WindowController.swift */; };
 		0A8798691E2E8D64003B5C99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8798681E2E8D64003B5C99 /* AppDelegate.swift */; };
 		0A87986B1E2E8D64003B5C99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A87986A1E2E8D64003B5C99 /* ViewController.swift */; };
@@ -29,6 +30,9 @@
 		0A14BDBD1E34325900FD4BBA /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		0A5411D81E2FDBFF00021B3E /* ToolTips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolTips.swift; sourceTree = "<group>"; };
 		0A5411DA1E2FDC0D00021B3E /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
+		C1EA00000000000000000001 /* CleanMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanMeTests.swift; sourceTree = "<group>"; };
+		C1EA00000000000000000002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1EA00000000000000000003 /* Clean MeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Clean MeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A5411DE1E2FE29700021B3E /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		0A8798651E2E8D64003B5C99 /* Clean Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clean Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A8798681E2E8D64003B5C99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +59,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C1EA00000000000000000008 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -62,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				0A8798671E2E8D64003B5C99 /* Clean Me */,
+				C1EA00000000000000000004 /* Clean MeTests */,
 				0A8798661E2E8D64003B5C99 /* Products */,
 				AB2487ABCE45E4AB392C4F24 /* Pods */,
 				A2E1C3CC906AD3E59CA30A3F /* Frameworks */,
@@ -72,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				0A8798651E2E8D64003B5C99 /* Clean Me.app */,
+				C1EA00000000000000000003 /* Clean MeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,6 +160,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C1EA00000000000000000004 /* Clean MeTests */ = {
+			isa = PBXGroup;
+			children = (
+				C1EA00000000000000000001 /* CleanMeTests.swift */,
+				C1EA00000000000000000002 /* Info.plist */,
+			);
+			path = "Clean MeTests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -169,7 +191,43 @@
 			productReference = 0A8798651E2E8D64003B5C99 /* Clean Me.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C1EA00000000000000000006 /* Clean MeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1EA0000000000000000000A /* Build configuration list for PBXNativeTarget "Clean MeTests" */;
+			buildPhases = (
+				C1EA00000000000000000007 /* Sources */,
+				C1EA00000000000000000008 /* Frameworks */,
+				C1EA00000000000000000009 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1EA0000000000000000000D /* PBXTargetDependency */,
+			);
+			name = "Clean MeTests";
+			productName = "Clean MeTests";
+			productReference = C1EA00000000000000000003 /* Clean MeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
+
+/* Begin PBXContainerItemProxy section */
+		C1EA0000000000000000000E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A87985D1E2E8D64003B5C99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0A8798641E2E8D64003B5C99;
+			remoteInfo = "Clean Me";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXTargetDependency section */
+		C1EA0000000000000000000D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0A8798641E2E8D64003B5C99 /* Clean Me */;
+			targetProxy = C1EA0000000000000000000E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXProject section */
 		0A87985D1E2E8D64003B5C99 /* Project object */ = {
@@ -183,6 +241,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = LGU8HX7J9K;
 						ProvisioningStyle = Automatic;
+					};
+					C1EA00000000000000000006 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 0A8798641E2E8D64003B5C99;
 					};
 				};
 			};
@@ -200,6 +263,7 @@
 			projectRoot = "";
 			targets = (
 				0A8798641E2E8D64003B5C99 /* Clean Me */,
+				C1EA00000000000000000006 /* Clean MeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -211,6 +275,13 @@
 			files = (
 				0A87986D1E2E8D64003B5C99 /* Assets.xcassets in Resources */,
 				0A8798701E2E8D64003B5C99 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1EA00000000000000000009 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +350,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C1EA00000000000000000007 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1EA00000000000000000005 /* CleanMeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -342,7 +421,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -395,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -437,6 +516,32 @@
 			};
 			name = Release;
 		};
+		C1EA0000000000000000000B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Clean MeTests/Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.KevinDeKoninck.Clean-MeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clean Me.app/Contents/MacOS/Clean Me";
+			};
+			name = Debug;
+		};
+		C1EA0000000000000000000C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Clean MeTests/Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.KevinDeKoninck.Clean-MeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clean Me.app/Contents/MacOS/Clean Me";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -454,6 +559,15 @@
 			buildConfigurations = (
 				0A8798751E2E8D64003B5C99 /* Debug */,
 				0A8798761E2E8D64003B5C99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1EA0000000000000000000A /* Build configuration list for PBXNativeTarget "Clean MeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1EA0000000000000000000B /* Debug */,
+				C1EA0000000000000000000C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
