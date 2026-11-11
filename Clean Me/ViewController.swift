@@ -298,7 +298,11 @@ class ViewController: NSViewController {
     
     //MARK: ACTIONS
     @IBAction func openBtnClicked(_ sender: NSButton) {
-        cleanMe.openInFinder(Path: PATHkey[sender.tag])
+        // CM-F-01 fix (Academy, 2026-11-11): the storyboard tag is the
+        // entry's index in `cleanLocations`; resolution is bounds-checked
+        // and opens the path of the very row the button sits on.
+        guard let location = cleanLocation(forTag: sender.tag) else { return }
+        cleanMe.openInFinder(Path: location.key)
     }
 
     @IBAction func cleanBtnClicked(_ sender: Any) {
@@ -307,26 +311,34 @@ class ViewController: NSViewController {
         }
         
         // Check all switches
-        var PathKeys = [Int]()
-        if(EmptyTrashSwitch.checked){ PathKeys.append(0) }
-        if(downloadedMailAttachementsSwitch.checked){ PathKeys.append(1) }
-        if(xcodeSwitch.checked){ PathKeys.append(2) }
-        if(bashHistorySwitch.checked){ PathKeys.append(3) }
-        if(terminalCacheSwitch.checked){ PathKeys.append(4) }
-        if(userApplicationLogsSwitch.checked){ PathKeys.append(5) }
-        if(userApplicationCacheSwitch.checked){ PathKeys.append(6) }
-        if(UserCacheSwitch.checked){ PathKeys.append(7) }
-        if(userLogsSwitch.checked){ PathKeys.append(8) }
-        if(systemLogsSwitch.checked){ PathKeys.append(10) }
-        if(globalTempSwitch.checked){ PathKeys.append(11) }
-        if(UserPreferencesSwitch.checked){ PathKeys.append(12) }
-        if(downloadsFolderSwitch.checked){ PathKeys.append(13) }
-        if(spotlightSwitch.checked){ PathKeys.append(14) }
-        if(docRevSwitch.checked){ PathKeys.append(15) }
-        if(imessageAttachmentsSwitch.checked){ PathKeys.append(16) }
-        
+        // CM-F-01 fix (Academy, 2026-11-11): each switch selects its
+        // `CleanLocation` by key — the same entry that carries the row's
+        // label and path. (Previously this list used a second numbering
+        // that skipped 9 and ran to 16, so every selection from System
+        // Logs onward deleted the NEXT category and iMessage crashed.)
+        var selectedLocations = [CleanLocation]()
+        func select(_ key: String, if checked: Bool) {
+            if(checked), let location = cleanLocation(forKey: key) { selectedLocations.append(location) }
+        }
+        select("trash", if: EmptyTrashSwitch.checked)
+        select("mails", if: downloadedMailAttachementsSwitch.checked)
+        select("xcode", if: xcodeSwitch.checked)
+        select("bash", if: bashHistorySwitch.checked)
+        select("terminal", if: terminalCacheSwitch.checked)
+        select("userAppLogs", if: userApplicationLogsSwitch.checked)
+        select("userAppCache", if: userApplicationCacheSwitch.checked)
+        select("userCache", if: UserCacheSwitch.checked)
+        select("userLogs", if: userLogsSwitch.checked)
+        select("systemLogs", if: systemLogsSwitch.checked)
+        select("globalTemp", if: globalTempSwitch.checked)
+        select("userPrefs", if: UserPreferencesSwitch.checked)
+        select("downloads", if: downloadsFolderSwitch.checked)
+        select("spotlight", if: spotlightSwitch.checked)
+        select("docRev", if: docRevSwitch.checked)
+        select("imessage", if: imessageAttachmentsSwitch.checked)
+
         // Check for empty array (see GitHub Issue #4)
-        if(PathKeys.count == 0){
+        if(selectedLocations.count == 0){
             showProgressIndicator(title: "Eurgh...", details: "")
             showOKPopUp(title: "Whoops...", text: "You didn't select anything...")
             return
@@ -344,7 +356,7 @@ class ViewController: NSViewController {
         let diskSizeBeforeInMB = Int(cleanMe.getSizeOfUsedDiskSpaceInMB().replacingOccurrences(of: "\n", with: ""))!
 
         // Do the cleaning
-        cleanMe.deleteItems(checkedItemsArray: PathKeys)
+        cleanMe.deleteItems(selectedLocations: selectedLocations)
     
     
         // Display results
