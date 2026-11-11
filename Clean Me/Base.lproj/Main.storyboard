@@ -549,7 +549,7 @@ Clean Me  is completely Open Source and has no secrets. For more information, vi
                                     <action selector="switchToggled:" target="XfG-lQ-9wD" id="yuK-AO-rOO"/>
                                 </connections>
                             </customView>
-                            <button fixedFrame="YES" tag="13" translatesAutoresizingMaskIntoConstraints="NO" id="loL-zc-7x6">
+                            <button fixedFrame="YES" tag="12" translatesAutoresizingMaskIntoConstraints="NO" id="loL-zc-7x6">
                                 <rect key="frame" x="346" y="596" width="25" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Folder-icon" imagePosition="only" alignment="center" alternateImage="Folder-icon" imageScaling="proportionallyUpOrDown" inset="2" id="1Yv-zH-bZz">
@@ -684,7 +684,7 @@ Clean Me  is completely Open Source and has no secrets. For more information, vi
                                     <action selector="switchToggled:" target="XfG-lQ-9wD" id="xR8-jA-IT7"/>
                                 </connections>
                             </customView>
-                            <button fixedFrame="YES" tag="10" translatesAutoresizingMaskIntoConstraints="NO" id="HsD-Lh-HTd">
+                            <button fixedFrame="YES" tag="9" translatesAutoresizingMaskIntoConstraints="NO" id="HsD-Lh-HTd">
                                 <rect key="frame" x="346" y="235" width="25" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Folder-icon" imagePosition="only" alignment="center" alternateImage="Folder-icon" imageScaling="proportionallyUpOrDown" inset="2" id="lcg-ey-rIF">
@@ -720,7 +720,7 @@ Clean Me  is completely Open Source and has no secrets. For more information, vi
                                     <action selector="switchToggled:" target="XfG-lQ-9wD" id="L8E-Hm-okg"/>
                                 </connections>
                             </customView>
-                            <button fixedFrame="YES" tag="11" translatesAutoresizingMaskIntoConstraints="NO" id="5HO-MS-iQB">
+                            <button fixedFrame="YES" tag="10" translatesAutoresizingMaskIntoConstraints="NO" id="5HO-MS-iQB">
                                 <rect key="frame" x="346" y="201" width="25" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Folder-icon" imagePosition="only" alignment="center" alternateImage="Folder-icon" imageScaling="proportionallyUpOrDown" inset="2" id="ABc-XB-fzc">
@@ -756,7 +756,7 @@ Clean Me  is completely Open Source and has no secrets. For more information, vi
                                     <action selector="switchToggled:" target="XfG-lQ-9wD" id="RGE-Ju-Hfa"/>
                                 </connections>
                             </customView>
-                            <button fixedFrame="YES" tag="12" translatesAutoresizingMaskIntoConstraints="NO" id="HZW-dm-8Cy">
+                            <button fixedFrame="YES" tag="11" translatesAutoresizingMaskIntoConstraints="NO" id="HZW-dm-8Cy">
                                 <rect key="frame" x="346" y="168" width="25" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Folder-icon" imagePosition="only" alignment="center" alternateImage="Folder-icon" imageScaling="proportionallyUpOrDown" inset="2" id="vVp-Oe-PyE">
@@ -767,7 +767,7 @@ Clean Me  is completely Open Source and has no secrets. For more information, vi
                                     <action selector="openBtnClicked:" target="XfG-lQ-9wD" id="Wwe-Fp-Mfg"/>
                                 </connections>
                             </button>
-                            <button fixedFrame="YES" tag="16" translatesAutoresizingMaskIntoConstraints="NO" id="abO-sf-MO4">
+                            <button fixedFrame="YES" tag="15" translatesAutoresizingMaskIntoConstraints="NO" id="abO-sf-MO4">
                                 <rect key="frame" x="346" y="104" width="25" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Folder-icon" imagePosition="only" alignment="center" alternateImage="Folder-icon" imageScaling="proportionallyUpOrDown" inset="2" id="yys-H5-rrP">
