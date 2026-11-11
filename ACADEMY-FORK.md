@@ -1,7 +1,7 @@
 # Academy Fork — Provenance
 
 - **Upstream repository:** Clean-Me — https://github.com/Kevin-De-Koninck/Clean-Me
-- **Original authors:** Copyright (c) 2017 Kevin De Koninck; The above copyright notice and this permission notice shall be included in all; AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+- **Original authors:** Kevin De Koninck, © 2017
 - **License:** MIT (upstream license governs the code; the upstream LICENSE file is unmodified)
 - **Fork point:** bb6f0e031db28c037b1c95a1fec296fe68e132f5 (upstream HEAD of `master` at acquisition)
 - **Date acquired:** 2026-11-08
