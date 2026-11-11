@@ -33,21 +33,57 @@ let imessageAttachmentsPath = "~/Library/Messages/Attachments/"
 let symbolicUserAppLogsPath = "~/.AppLogsSymLinksForCleanMe/"
 let symbolicUserAppCachePath = "~/.AppCacheSymLinksForCleanMe/"
 
-let PATH : [String: String] = [ "trash"         : trashPath,
-                                "mails"         : mailAttachementsPath,
-                                "xcode"         :   /* xcodeArchivesPath + " " + */ xcodeDeviceLogsPath + " " + xcodeDerivedDataPath,
-                                "bash"          : bashHistoryPath + " " + bashHistoryFile,
-                                "terminal"      : terminalCacheFilesPath,
-                                "userAppLogs"   : userAppLogsPath,
-                                "userAppCache"  : userAppCachePath,
-                                "userCache"     : userCachePath,
-                                "userLogs"      : userLogsPath,
-                                "systemLogs"    : systemLogs1Path + " " + systemLogs2Path,
-                                "globalTemp"    : globalTempFilesPath,
-                                "userPrefs"     : userPreferencesPath,
-                                "downloads"     : downloadsPath,
-                                "spotlight"     : spotlightPath,
-                                "docRev"        : docRevPath,
-                                "imessage"      : imessageAttachmentsPath
-                              ]
-let PATHkey: [String] = ["trash","mails","xcode","bash","terminal","userAppLogs","userAppCache", "userCache","userLogs","systemLogs","globalTemp","userPrefs","downloads","spotlight","docRev", "imessage"] //helper
+// MARK: - CM-F-01 fix (Academy, 2026-11-11): single source of truth
+//
+// One `CleanLocation` entry carries its stable key, the label the UI shows
+// (verbatim from Main.storyboard), the path that Analyse measures and Clean
+// deletes, and whether deletion runs as root. `PATH` and `PATHkey` are
+// DERIVED from `cleanLocations` below — there are no parallel arrays joined
+// by index anymore, so a label can no longer resolve to a different path.
+// The storyboard folder-open buttons use the entry's index in
+// `cleanLocations` as their tag; `cleanLocation(forTag:)` is the only
+// tag -> location resolution and it is bounds-checked (no crash).
+
+struct CleanLocation {
+    let key: String
+    let displayName: String
+    let path: String
+    let requiresRoot: Bool
+}
+
+let cleanLocations: [CleanLocation] = [
+    CleanLocation(key: "trash",        displayName: "Empty the Trash",              path: trashPath,                                                              requiresRoot: false),
+    CleanLocation(key: "mails",        displayName: "Downloaded Mail Attachments",  path: mailAttachementsPath,                                                   requiresRoot: false),
+    CleanLocation(key: "xcode",        displayName: "Xcode DerivedData and Archives", path: /* xcodeArchivesPath + " " + */ xcodeDeviceLogsPath + " " + xcodeDerivedDataPath, requiresRoot: false),
+    CleanLocation(key: "bash",         displayName: "Bash History",                 path: bashHistoryPath + " " + bashHistoryFile,                                requiresRoot: false),
+    CleanLocation(key: "terminal",     displayName: "Terminal Cache",               path: terminalCacheFilesPath,                                                 requiresRoot: true),
+    CleanLocation(key: "userAppLogs",  displayName: "User Application Logs",        path: userAppLogsPath,                                                        requiresRoot: false),
+    CleanLocation(key: "userAppCache", displayName: "User Application Caches",      path: userAppCachePath,                                                       requiresRoot: false),
+    CleanLocation(key: "userCache",    displayName: "User Cache",                   path: userCachePath,                                                          requiresRoot: false),
+    CleanLocation(key: "userLogs",     displayName: "User Logs",                    path: userLogsPath,                                                           requiresRoot: false),
+    CleanLocation(key: "systemLogs",   displayName: "System Logs",                  path: systemLogs1Path + " " + systemLogs2Path,                                requiresRoot: true),
+    CleanLocation(key: "globalTemp",   displayName: "Global Temp Files",            path: globalTempFilesPath,                                                    requiresRoot: true),
+    CleanLocation(key: "userPrefs",    displayName: "User Preferences",             path: userPreferencesPath,                                                    requiresRoot: true),
+    CleanLocation(key: "downloads",    displayName: "Empty the Downloads Folder",   path: downloadsPath,                                                          requiresRoot: false),
+    CleanLocation(key: "spotlight",    displayName: "Spotlight indexing files",     path: spotlightPath,                                                          requiresRoot: false),
+    CleanLocation(key: "docRev",       displayName: "Document Revisions",           path: docRevPath,                                                             requiresRoot: true),
+    CleanLocation(key: "imessage",     displayName: "iMessage attachments",         path: imessageAttachmentsPath,                                                requiresRoot: true)
+]
+
+func cleanLocation(forKey key: String) -> CleanLocation? {
+    return cleanLocations.first(where: { $0.key == key })
+}
+
+func cleanLocation(forTag tag: Int) -> CleanLocation? {
+    guard cleanLocations.indices.contains(tag) else { return nil }
+    return cleanLocations[tag]
+}
+
+// Derived views over `cleanLocations` (kept for the existing string-key
+// callers in `CleanMe.calculateSizes` / `ViewController` size lookups).
+let PATH: [String: String] = {
+    var dict: [String: String] = [:]
+    for location in cleanLocations { dict[location.key] = location.path }
+    return dict
+}()
+let PATHkey: [String] = cleanLocations.map { $0.key } //helper, derived — do not hand-edit
